@@ -1,4 +1,4 @@
-const ENDPOINT_URL = "http://localhost:8000/api/v1";
+const ENDPOINT_URL = "https://api.afrivia.me/api/v1";
 
 unauth_instance = axios.create({
   baseURL: ENDPOINT_URL,
