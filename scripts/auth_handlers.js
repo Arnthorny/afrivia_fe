@@ -69,7 +69,9 @@ auth_routes_instance.interceptors.response.use(
           return auth_routes_instance(originalRequest);
         }
       } catch (err) {
-        throw err;
+        if (err.response.status === 401) {
+          window.location.href = "./login.html";
+        } else throw err;
       }
     } else {
       throw error;
