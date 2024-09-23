@@ -67,7 +67,10 @@ async function renderAllSubs(submStatus) {
         <thead>
             <tr>
                 ${columnFields
-                  .map((column) => `<th>${column.toUpperCase()}</th>`)
+                  .map(
+                    (column) =>
+                      `<th>${column.toUpperCase().replace("_", " ")}</th>`
+                  )
                   .join("")}
             </tr>
         </thead>
@@ -116,7 +119,7 @@ async function renderSingleSub(el) {
               </div>
               <div class="row">
                 <div class="cell">Category</div>
-                <div class="cell">${subObject.category}</div>
+                <div class="cell">${subObject.category.replace("-", " ")}</div>
               </div>
               <div class="row">
                 <div class="cell">Difficulty</div>

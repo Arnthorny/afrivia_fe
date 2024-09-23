@@ -10,13 +10,14 @@
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px #34495e;
 }
 #submission-content-back-button {
-  background-color: #f0f0f0;
+  background-color: #34495e;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: white;
   cursor: pointer;
   margin-bottom: 20px;
 }
@@ -52,22 +53,35 @@
 }
 .submission-content-button-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  flex-direction: row-reverse;
   margin-top: 20px;
 }
 .action-button {
   padding: 10px 20px;
   margin-left: 10px;
-  border: none;
-  border-radius: 5px;
+  background: none;
+  color: black;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
 }
 .approve-button {
+  border: 2px solid #4caf50;
+}
+
+.approve-button:hover {
+  /* border: none; */
   background-color: #4caf50;
   color: white;
 }
+
 .reject-button {
+  border: 2px solid #f44336;
+}
+
+.reject-button:hover {
+  /* border: none; */
   background-color: #f44336;
   color: white;
 }
