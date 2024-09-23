@@ -1,0 +1,17 @@
+body {
+	position: relative;
+}
+
+main {
+	width: 80%;
+}
+
+main > p {
+	margin-top: 1rem;
+	font-size: 1.5rem;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+}

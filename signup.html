@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/zome_icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/signup.css" />
+    <script type="text/javascript" src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/auth_handlers.js"></script>
+    <script type="module" src="./scripts/auth_form_handlers.js"></script>
+    <script type="module" src="./scripts/signup.js" defer></script>
+    <title>Zome</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html"><img src="images/zome_logo.svg" alt="" /></a>
+      </div>
+      <nav>
+        <ol>
+          <li><a href="#">API CONFIG</a></li>
+          <li><a href="#">ADD SUBMISSION</a></li>
+          <li><a href="./contact.html">CONTACT US</a></li>
+          <li><a href="./about.html">ABOUT</a></li>
+          <li id="profile_sign">
+            <img src="images/user_circle.svg" alt="" />
+            <a href="./login.html">Sign In</a>
+          </li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1>Moderator Sign Up Form</h1>
+      <div class="form_container">
+        <!-- <div class="alert-container">
+          <span class="alert-success">Account has been created</span>
+        </div> -->
+        <form action="" method="POST" id="signup-form">
+          <fieldset class="details">
+            <label for="username--input">Username *</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              id="username--input"
+              minlength="2"
+              maxlength="20"
+              required
+              autofocus
+            />
+            <label for="lastname--input">Last Name *</label>
+            <input
+              type="text"
+              name="last_name"
+              placeholder="Last name"
+              minlength="2"
+              maxlength="20"
+              required
+            />
+            <label for="firstname--input">First Name *</label>
+            <input
+              type="text"
+              name="first_name"
+              placeholder="First name"
+              minlength="2"
+              maxlength="20"
+              id="firstname--input"
+              required
+            />
+            <label for="email-input">Email *</label
+            ><input
+              id="email-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <label>Password *</label
+            ><input
+              type="password"
+              name="password"
+              id="signup-password"
+              placeholder="Password"
+              required
+              minlength="8"
+            />
+            <label>Confirm Password *</label
+            ><input
+              type="password"
+              name="confirm_password"
+              id="signup-confirm-password"
+              placeholder="Confirm Password"
+              minlength="8"
+              required
+            />
+            <label for="country-preference-input"
+              >Preferred African countries (if any)</label
+            ><input
+              id="country-preference-input"
+              type="text"
+              name="country_preferences"
+              placeholder="E.g: Nigeria, Ghana"
+            />
+
+            <button id="submit">Sign Up</button>
+          </fieldset>
+        </form>
+        <p>Already have an account? <a href="./login.html">Sign In</a></p>
+      </div>
+    </main>
+    <footer>
+      <p>
+        This portfolio project was created for the ALX software engineering
+        programme
+      </p>
+      <p>
+        Find the source code and contributors
+        <a href="https://github.com/Matutozi/Zome" target="blank">here</a>
+      </p>
+    </footer>
+  </body>
+</html>

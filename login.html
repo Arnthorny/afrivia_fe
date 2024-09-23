@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/zome_icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/signup.css" />
+    <script type="text/javascript" src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/auth_handlers.js"></script>
+    <script type="module" src="./scripts/auth_form_handlers.js"></script>
+    <script type="module" src="./scripts/login.js" defer></script>
+    <title>Zome</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html"><img src="images/zome_logo.svg" alt="" /></a>
+      </div>
+      <nav>
+        <ol>
+          <li><a href="#">API CONFIG</a></li>
+          <li><a href="#">ADD SUBMISSION</a></li>
+          <li><a href="./contact.html">CONTACT US</a></li>
+          <li><a href="./about.html">ABOUT</a></li>
+          <li id="profile_sign">
+            <img src="images/user_circle.svg" alt="" />
+            <a href="#">Sign In</a>
+          </li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <h1>Sign In</h1>
+      <div class="form_container">
+        <!-- <div class="alert-container">
+          <span class="alert-danger"
+            >Login not successful. Please enter valid credentials</span
+          >
+        </div> -->
+        <form action="" method="POST" id="signin-form">
+          <fieldset class="details">
+            <label id="email_label" for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              id="email"
+              required
+              autofocus
+            />
+            <label for="password">Password </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+              minlength="8"
+            />
+            <!-- <div class="invalid-feedback">
+              <span>The password is too short</span>
+            </div> -->
+            <div class="sbmt_rem_container">
+              <div class="remember_container">
+                <input type="checkbox" name="remember" id="remember" />
+                <label id="checkbox_label" for="remember">Remember Me</label>
+              </div>
+              <button id="submit">Login</button>
+            </div>
+          </fieldset>
+        </form>
+        <p>Need an account? <a href="./signup.html">Sign Up</a></p>
+      </div>
+    </main>
+    <footer class="footer-position">
+      <p>
+        This portfolio project was created for the ALX software engineering
+        programme
+      </p>
+      <p>
+        Find the source code and contributors
+        <a href="https://github.com/Matutozi/Zome" target="blank">here</a>
+      </p>
+    </footer>
+  </body>
+</html>

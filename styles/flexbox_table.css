@@ -1,0 +1,73 @@
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+} */
+.submission-content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#submission-content-back-button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.flexbox-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+.row:last-child {
+  border-bottom: none;
+}
+.cell {
+  flex: 1;
+  padding: 12px;
+  border-right: 1px solid #ddd;
+}
+.cell:last-child {
+  border-right: none;
+}
+.row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.options-list {
+  margin: 0;
+  padding-left: 20px;
+}
+.submission-content-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.action-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.approve-button {
+  background-color: #4caf50;
+  color: white;
+}
+.reject-button {
+  background-color: #f44336;
+  color: white;
+}

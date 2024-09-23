@@ -1,0 +1,159 @@
+body {
+  position: relative;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form_container {
+  display: flex;
+  flex-flow: column nowrap;
+  width: fit-content;
+}
+
+.alert-container {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.alert-container > span {
+  display: block;
+  font-size: 1.15rem;
+}
+
+.alert-container > span.alert-danger {
+  color: var(--zome-error);
+}
+
+.alert-container > span.alert-success {
+  color: var(--zome-green-mix);
+}
+
+.form_container > form {
+  max-width: 500px;
+  min-width: 300px;
+  width: 60vw;
+}
+
+.form_container > form > fieldset {
+  border: none;
+  border-bottom: 3px solid #3b3b4f;
+}
+
+.form_container > form label {
+  display: block;
+  margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.form_container > form label:first-of-type {
+  margin-top: 0;
+}
+
+.form_container > form input,
+.form_container > form textarea {
+  /* background-color: var(--zome-user); */
+  border: 1px solid var(--zome-user);
+  border-radius: 10px;
+  min-height: 2.5rem;
+  width: 100%;
+  color: black;
+  padding: 1rem;
+}
+
+.form_container > form input[type="checkbox"] {
+  display: inline;
+  vertical-align: top;
+  background: none;
+  width: unset;
+  margin: 0 0.5rem 0 0;
+  cursor: pointer;
+}
+
+.form_container > form input[type="checkbox"] ~ label {
+  display: inline-block;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+.is-invalid {
+  border: 1px solid var(--zome-error);
+}
+
+.invalid-feedback {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  color: var(--zome-error);
+}
+
+.invalid-feedback > span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  /* align-self: flex-end; */
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.form_container > form select {
+  display: block;
+  background-color: white;
+  width: 100%;
+  min-height: 2em;
+  border: none;
+  margin: 10px 0;
+}
+
+.sbmt_rem_container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 0.5rem 0;
+  align-items: flex-end;
+}
+
+.sbmt_rem_container > button#submit {
+  margin: 0;
+}
+
+.form_container > form button {
+  font-size: 1.5rem;
+  display: block;
+  margin: 2rem 0 0.2rem auto;
+  border: 1px solid var(--zome-blue);
+  border-radius: 10px;
+  color: var(--zome-blue);
+  padding: 1rem;
+  /* width: 60%; */
+  background: none;
+  cursor: pointer;
+}
+
+.form_container > form button:hover {
+  background-color: var(--zome-user);
+  color: var(--white);
+  border: 1px solid var(--zome-user);
+}
+
+.form_container > form ~ p {
+  font-size: 1.3rem;
+}
+
+.form_container > form ~ p > a {
+  color: var(--zome-blue);
+  text-decoration: underline;
+}
+
+footer.footer-position {
+  position: absolute;
+  bottom: 0;
+}

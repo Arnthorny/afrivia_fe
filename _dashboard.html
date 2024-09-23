@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <link rel="stylesheet" href="styles/flexbox_table.css" />
+    <script type="text/javascript" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/auth_handlers.js"></script>
+    <script src="./scripts/_dashboard.js" defer></script>
+    <title>Dashboard</title>
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html"><img src="images/zome_logo.svg" alt="" /></a>
+      </div>
+      <nav>
+        <ol>
+          <li><a href="#">API CONFIG</a></li>
+          <li><a href="#">ADD SUBMISSION</a></li>
+          <li><a href="./contact.html">CONTACT US</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li id="profile_sign">
+            <img src="images/user_circle.svg" alt="" />
+            <a href="./login.html">Sign In</a>
+          </li>
+        </ol>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul id="sidebar-menu-items">
+          <li>
+            <a href="#" class="menu-item active" data-section="pending"
+              >Pending</a
+            >
+          </li>
+          <li>
+            <a href="#" class="menu-item" data-section="approved">Approved</a>
+          </li>
+          <li>
+            <a href="#" class="menu-item" data-section="rejected">Rejected</a>
+          </li>
+        </ul>
+      </div>
+      <div class="main-content">
+        <div class="header">
+          <h1 id="page-title">Dashboard</h1>
+        </div>
+        <div id="content-area"></div>
+      </div>
+    </div>
+  </body>
+</html>

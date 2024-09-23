@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/zome_icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/profile.css" />
+    <script type="text/javascript" src="script.js" defer></script>
+    <title>Zome</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html"><img src="images/zome_logo.svg" alt="" /></a>
+      </div>
+      <nav>
+        <ol>
+          <li><a href="#">API CONFIG</a></li>
+          <li><a href="#">ADD SUBMISSION</a></li>
+          <li><a href="./contact.html">CONTACT US</a></li>
+          <li><a href="./about.html">ABOUT</a></li>
+          <li id="profile_sign">
+            <img src="images/user_circle.svg" alt="" />
+            <a href="./login.html">Sign In</a>
+          </li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <div class="user-profile-container">
+        <div class="profile_img_container">
+          <img src="images/default-user.png" alt="" />
+        </div>
+        <div class="profile">
+          <h1>Profile Details:</h1>
+          <hr />
+          <div class="profile-details">
+            <div class="profile-detail">
+              <h2>Username:</h2>
+              <p id="user-username">The_pete</p>
+            </div>
+
+            <div class="profile-detail">
+              <h2>Last Name:</h2>
+              <p id="user-last_name">Pan</p>
+            </div>
+            <div class="profile-detail">
+              <h2>First Name:</h2>
+              <p id="user-first_name">Peter</p>
+            </div>
+            <div class="profile-detail">
+              <h2>Email:</h2>
+              <p id="user-email">johndoe@gmail.com</p>
+            </div>
+          </div>
+          <h1>All Listings</h1>
+          <hr />
+          <div class="user_listings">
+            <div class="user_listings--listed">
+              <article class="listing">
+                <div class="listing_image">
+                  <img src="images/zome_placeholder-2.jpg" alt="" />
+                </div>
+                <div class="price_favorite_flex">
+                  <h2 class="listing_price">$700,000</h2>
+                  <button class="favorite_btn checked"></button>
+                </div>
+                <a class="listing_link" href="#">
+                  <p class="listing_title">The King's Villa</p>
+                </a>
+                <div class="listing_details">
+                  <p class="listing_details-bathrooms"><span>3</span> bds</p>
+                  <p class="listing_details-bedrooms"><span>1</span> ba</p>
+                  <p class="listing_details-size"><span>4000</span> sqm</p>
+                  <p class="listing_details-detail">
+                    <span>House</span> for Sale
+                  </p>
+                </div>
+                <p class="listing_location">
+                  115 Ikoroudu Road, Lagos, Nigeria
+                </p>
+              </article>
+              <article class="listing">
+                <div class="listing_image">
+                  <img src="images/zome_placeholder-2.jpg " alt="" />
+                </div>
+                <div class="price_favorite_flex">
+                  <h2 class="listing_price">$700,000</h2>
+                  <button class="favorite_btn"></button>
+                </div>
+                <a class="listing_link" href="#">
+                  <p class="listing_title">The King's Villa</p>
+                </a>
+                <div class="listing_details">
+                  <p class="listing_details-bathrooms"><span>3</span> bds</p>
+                  <p class="listing_details-bedrooms"><span>1</span> ba</p>
+                  <p class="listing_details-size"><span>4000</span> sqm</p>
+                  <p class="listing_details-detail">
+                    <span>House</span> for Sale
+                  </p>
+                </div>
+                <p class="listing_location">
+                  115 Ikoroudu Road, Lagos, Nigeria
+                </p>
+              </article>
+            </div>
+            <button id="new_listing-btn">Add Listing</button>
+            <div class="listing_form_container hidden">
+              <form action="" method="POST" enctype="multipart/form-data">
+                <fieldset class="details">
+                  <label for="listing_title--input">Title</label>
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="E.g. The King's Villa"
+                    id="listing_title--input"
+                    minlength="5"
+                    maxlength="100"
+                    required
+                  />
+                  <label for="listing-description">Description</label>
+                  <textarea
+                    name="description"
+                    id="listing-description"
+                    cols="10  "
+                    rows="5"
+                    required
+                    placeholder="Situated in the suburbs..."
+                  ></textarea>
+                  <label for="listing-price">Price ($)</label>
+                  <input
+                    type="number"
+                    name="price"
+                    placeholder="999.99"
+                    min="0"
+                    step="0.01"
+                    id="listing-price"
+                    required
+                  />
+
+                  <label for="listing-location">Location</label>
+                  <input
+                    type="text"
+                    name="location"
+                    placeholder="10 Downing Street..."
+                    id="listing-location"
+                    minlength="5"
+                    maxlength="100"
+                    required
+                  />
+
+                  <label for="listing-size">Size (sqm)</label>
+                  <input
+                    type="number"
+                    name="size"
+                    placeholder="100"
+                    min="0"
+                    step="0.01"
+                    id="listing-size"
+                    required
+                  />
+
+                  <label for="listing-image">Upload image </label
+                  ><input
+                    type="file"
+                    name="image"
+                    id="listing-image"
+                    accept="image/png, image/jpeg"
+                    required
+                  />
+                  <div id="control-buttons">
+                    <button type="button" id="reset_btn">Cancel</button>
+                    <button type="submit" id="submit" disabled>Submit</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay hidden"></div>
+    </main>
+    <footer>
+      <p>
+        This portfolio project was created for the ALX software engineering
+        programme
+      </p>
+      <p>
+        Find the source code and contributors
+        <a href="https://github.com/Matutozi/Zome" target="blank">here</a>
+      </p>
+    </footer>
+
+    <script src="scripts/profile.js"></script>
+  </body>
+</html>
