@@ -1,5 +1,3 @@
-const ENDPOINT_URL = "https://api.afrivia.me/api/v1";
-
 unauth_instance = axios.create({
   baseURL: ENDPOINT_URL,
 });
@@ -11,33 +9,35 @@ with_cred_instance = axios.create({
 
 auth_routes_instance = axios.create({
   baseURL: ENDPOINT_URL,
+  withCredentials: true,
 });
 
-function getCookie(name) {
+/* Returns given cookie value if available else undefined */
+getCookie = function (name) {
   let value = `; ${document.cookie}`;
   let parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(";").shift();
-}
+};
 
-async function setAuthCookies(userObject) {
+setAuthCookies = async function (userObject) {
   document.cookie = `token=${
     userObject["access_token"]
-  }; path=/; SameSite=Lax; max-age=${60 * 15};`;
+  }; path=/; SameSite=Lax; max-age=${60 * BEARER_EXPIRY_MINUTES};`;
 
   if (userObject.data !== undefined) {
     document.cookie = `username=${
       userObject["data"]["username"]
-    }; path=/; SameSite=Lax; max-age=${60 * 15};`;
+    }; path=/; SameSite=Lax; max-age=${REFRESH_EXPIRY_DAYS * 24 * 60 * 60};`;
 
     document.cookie = `userId=${
       userObject["data"]["id"]
-    }; path=/; SameSite=Lax; max-age=${60 * 15};`;
+    }; path=/; SameSite=Lax; max-age=${REFRESH_EXPIRY_DAYS * 24 * 60 * 60};`;
   }
-}
+};
 
-async function deleteCookie(name) {
+deleteCookie = function (name) {
   document.cookie = `${name}=; path=/; max-age=0;`;
-}
+};
 
 // Add a request interceptor
 auth_routes_instance.interceptors.request.use(
@@ -79,4 +79,4 @@ auth_routes_instance.interceptors.response.use(
   }
 );
 
-export { setAuthCookies };
+// export { setAuthCookies };

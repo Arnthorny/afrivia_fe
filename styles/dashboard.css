@@ -20,7 +20,7 @@ html {
   border-radius: 10px;
 }
 .sidebar h2 {
-  margin-top: 0;
+  margin-top: 1rem;
   color: #34495e;
   margin-bottom: 2.5rem;
   padding-bottom: 10px;
@@ -47,6 +47,24 @@ html {
 .sidebar a.active {
   background-color: #34495e;
   color: white;
+}
+
+#logout-button-li {
+  margin-top: 5rem;
+}
+
+#logout-button > i {
+  margin-right: 1rem;
+}
+
+#logout-button {
+  /* margin-top: 8rem; */
+  background-color: #34495e;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
 }
 .main-content {
   flex-grow: 1;
@@ -103,4 +121,101 @@ div#content-area {
 
 div#single-submission-content-area h3 {
   margin-bottom: 1rem;
+}
+
+/* Styling for single submission container */
+
+.submission-content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px #34495e;
+}
+
+#submission-content-back-button > i {
+  margin-right: 0.8rem;
+}
+
+#submission-content-back-button {
+  background-color: inherit;
+  border: 1.5px solid #34495e;
+
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: #34495e;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#submission-content-back-button:hover {
+  background-color: #34495e;
+  color: white;
+}
+
+.flexbox-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+.row:last-child {
+  border-bottom: none;
+}
+.cell {
+  flex: 1;
+  padding: 12px;
+  border-right: 1px solid #ddd;
+}
+.cell:last-child {
+  border-right: none;
+}
+.row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.options-list {
+  margin: 0;
+  padding-left: 20px;
+}
+.submission-content-button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin-top: 20px;
+}
+.action-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background: none;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.approve-button {
+  border: 2px solid #4caf50;
+}
+
+.approve-button:hover {
+  /* border: none; */
+  background-color: #4caf50;
+  color: white;
+}
+
+.reject-button {
+  border: 2px solid #f44336;
+}
+
+.reject-button:hover {
+  /* border: none; */
+  background-color: #f44336;
+  color: white;
 }
