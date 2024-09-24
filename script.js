@@ -5,7 +5,10 @@ const ENDPOINT_URL = "https://api.afrivia.me/api/v1";
 const BEARER_EXPIRY_MINUTES = 15;
 const REFRESH_EXPIRY_DAYS = 15;
 
-let auth_routes_instance, with_cred_instance, unauth_instance;
+let auth_routes_instance,
+  with_cred_instance,
+  unauth_instance,
+  auth_routes_with_cred_instance;
 let getCookie, setAuthCookies, deleteCookie;
 
 const getCookieHere = function (name) {

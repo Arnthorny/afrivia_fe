@@ -188,13 +188,13 @@ async function handleUserLogout() {
   };
   // console.log(approveOptions);
   try {
-    const response = await auth_routes_instance(logoutOptions);
+    const response = await auth_routes_with_cred_instance(logoutOptions);
     if (response.status == 200) {
-      alert("Successfully logged out");
       deleteCookie("token");
       deleteCookie("username");
       deleteCookie("userId");
       window.location.href = "./login.html";
+      alert("Successfully logged out");
     }
   } catch (error) {
     console.error(error && error.response);

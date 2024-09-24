@@ -9,6 +9,10 @@ with_cred_instance = axios.create({
 
 auth_routes_instance = axios.create({
   baseURL: ENDPOINT_URL,
+});
+
+auth_routes_with_cred_instance = axios.create({
+  baseURL: ENDPOINT_URL,
   withCredentials: true,
 });
 
@@ -39,43 +43,59 @@ deleteCookie = function (name) {
   document.cookie = `${name}=; path=/; max-age=0;`;
 };
 
+const auth_request_interceptor = function (config) {
+  const token = getCookie("token");
+  config.headers["Authorization"] = token ? `Bearer ${token}` : undefined;
+
+  return config;
+};
+
+const auth_response_err_interceptor = async function (error) {
+  const status = error.response ? error.response.status : null;
+  const errMessage = error.response ? error.response.data["message"] : null;
+  const originalRequest = error.config;
+  if (status === 401) {
+    try {
+      const resToken = await with_cred_instance.post(
+        "/auth/refresh-access-token"
+      );
+      if (resToken.statusText == "OK") {
+        setAuthCookies(resToken.data);
+        return auth_routes_instance(originalRequest);
+      }
+    } catch (err) {
+      if (err.response.status === 401) {
+        window.location.href = "./login.html";
+      } else throw err;
+    }
+  } else {
+    throw error;
+  }
+};
+
+// Add a response interceptor
+auth_routes_instance.interceptors.response.use(
+  (response) => response,
+  auth_response_err_interceptor
+);
+
+auth_routes_with_cred_instance.interceptors.response.use(
+  (response) => response,
+  auth_response_err_interceptor
+);
+
 // Add a request interceptor
 auth_routes_instance.interceptors.request.use(
-  function (config) {
-    const token = getCookie("token");
-    config.headers["Authorization"] = token ? `Bearer ${token}` : undefined;
-
-    return config;
-  },
+  auth_request_interceptor,
   function (error) {
     return Promise.reject(error);
   }
 );
 
-// Add a response interceptor
-auth_routes_instance.interceptors.response.use(
-  (response) => response,
-  async function (error) {
-    const status = error.response ? error.response.status : null;
-    const errMessage = error.response ? error.response.data["message"] : null;
-    const originalRequest = error.config;
-    if (status === 401) {
-      try {
-        const resToken = await with_cred_instance.post(
-          "/auth/refresh-access-token"
-        );
-        if (resToken.statusText == "OK") {
-          setAuthCookies(resToken.data);
-          return auth_routes_instance(originalRequest);
-        }
-      } catch (err) {
-        if (err.response.status === 401) {
-          window.location.href = "./login.html";
-        } else throw err;
-      }
-    } else {
-      throw error;
-    }
+auth_routes_with_cred_instance.interceptors.request.use(
+  auth_request_interceptor,
+  function (error) {
+    return Promise.reject(error);
   }
 );
 
