@@ -152,6 +152,10 @@ async function renderSingleSub(el) {
                 <div class="cell">${subObject.countries.join(",")}</div>
               </div>
               <div class="row">
+                <div class="cell">Associated Countries</div>
+                <div class="cell">${subObject.submission_note || ""}</div>
+              </div>
+              <div class="row">
                 <div class="cell">Date Submitted</div>
                 <div class="cell">${new Date(
                   subObject.created_at

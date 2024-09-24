@@ -69,4 +69,54 @@ async function signUpSubmissionHandler(e) {
   }
 }
 
-export { signInSubmissionHandler, signUpSubmissionHandler };
+async function submissionFormSubmissionHandler(e) {
+  e.preventDefault();
+  const form = e.target;
+
+  const formData = new FormData(form);
+  const formObjectData = Object.fromEntries(Array.from(formData.entries()));
+  let tmp = String(formObjectData["countries"]).split(", ");
+
+  formObjectData["countries"] = tmp[0] === "" ? [] : tmp;
+  formObjectData["submission_note"] =
+    formObjectData["submission_note"] === ""
+      ? null
+      : formObjectData["submission_note"];
+
+  // Extract incorrect options
+  formObjectData.incorrect_options = Object.keys(formObjectData).reduce(
+    (arr, curr) => {
+      if (curr.startsWith("incorrect_option")) {
+        arr.push(formObjectData[curr]);
+        delete formObjectData[curr];
+      }
+      return arr;
+    },
+    []
+  );
+
+  console.log(formObjectData);
+
+  let postSubmOptions = {
+    method: "post",
+    url: "/submissions",
+    data: formObjectData,
+  };
+
+  try {
+    const response = await unauth_instance(postSubmOptions);
+    if (response.status == 201) {
+      alert("Submission made successfully");
+      form.reset();
+    }
+  } catch (error) {
+    errorRequestHandler(error.response.data, error.response.status);
+    console.log(error.response);
+  }
+}
+
+export {
+  signInSubmissionHandler,
+  signUpSubmissionHandler,
+  submissionFormSubmissionHandler,
+};

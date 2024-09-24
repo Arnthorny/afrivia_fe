@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trivia Submission Form</title>
+    <link rel="stylesheet" href="styles/common.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/submission.css" />
+    <script type="text/javascript" src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/auth_handlers.js"></script>
+    <script type="module" src="./scripts/auth_form_handlers.js"></script>
+    <script type="module" src="./scripts/submission.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="./index.html"><img src="images/zome_logo.svg" alt="" /></a>
+      </div>
+      <nav>
+        <ol>
+          <li><a href="#">API CONFIG</a></li>
+          <li><a href="./submission.html">ADD SUBMISSION</a></li>
+          <li><a href="./contact.html">CONTACT US</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li id="profile_sign">
+            <img src="images/user_circle.svg" alt="" />
+            <a href="./login.html">Sign In</a>
+          </li>
+        </ol>
+      </nav>
+    </header>
+    <main>
+      <div class="submission-form-container">
+        <h1>Afrivia Submission Form</h1>
+        <form>
+          <label for="question">Question *</label>
+          <input
+            type="text"
+            id="question"
+            name="question"
+            required
+            minlength="4"
+          />
+
+          <label for="incorrect1">Incorrect Option 1 *</label>
+          <input
+            type="text"
+            id="incorrect1"
+            name="incorrect_option1"
+            required
+            minlength="1"
+          />
+
+          <label for="incorrect2">Incorrect Option 2 *</label>
+          <input
+            type="text"
+            id="incorrect2"
+            name="incorrect_option2"
+            required
+            minlength="1"
+          />
+
+          <label for="incorrect3">Incorrect Option 3 *</label>
+          <input
+            type="text"
+            id="incorrect3"
+            name="incorrect_option3"
+            required
+            minlength="1"
+          />
+
+          <label for="correct">Correct Option *</label>
+          <input
+            type="text"
+            id="correct"
+            name="correct_option"
+            required
+            minlength="1"
+          />
+
+          <label for="difficulty">Difficulty *</label>
+          <select id="difficulty" name="difficulty" required>
+            <option value="">Select difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <label for="note">Submission Note</label>
+          <textarea id="note" name="submission_note"></textarea>
+
+          <label for="category">Category *</label>
+          <select id="category" name="category" required>
+            <option value="">Select category</option>
+            <!-- <option value="math">Mathematics</option>
+            <option value="science">Science</option>
+            <option value="history">History</option>
+            <option value="literature">Literature</option>
+            <option value="geography">Geography</option> -->
+          </select>
+
+          <label for="countries"
+            >Countries
+            <span id="span-countries-link"
+              >(here's a
+              <a
+                href="https://api.afrivia.me/api/v1/submissions/countries"
+                target="_blank"
+                >list</a
+              >)</span
+            >
+          </label>
+          <input
+            type="text"
+            id="countries"
+            name="countries"
+            placeholder="E.g: Nigeria, Ghana"
+            minlength="4"
+          />
+
+          <input type="submit" value="Make Submission" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

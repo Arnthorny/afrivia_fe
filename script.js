@@ -16,6 +16,7 @@ const getCookieHere = function (name) {
 
 window.addEventListener("load", function (e) {
   const signInButton = document.getElementById("profile_sign");
+  if (signInButton === null) return;
 
   const username = getCookieHere("username");
   if (username !== undefined) {
