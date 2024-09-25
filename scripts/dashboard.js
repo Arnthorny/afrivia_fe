@@ -275,7 +275,7 @@ async function approveRejectButtonHandler(el_) {
         dashboardData.findIndex((val) => val.id === submId),
         1
       )[0];
-      createTrivia(submObj);
+      if (status === "approved") createTrivia(submObj);
       alert(`Submission ${status}`);
       renderAllSubs("pending");
     }
