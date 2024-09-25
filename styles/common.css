@@ -34,6 +34,14 @@ html {
   --input-focus: #d0d7de;
   --text-color: #333333;
   --label-color: #34495e;
+
+  --primary-color-api-config: #3498db;
+  --secondary-color-api-config: #2c3e50;
+  --background-color-api-config: #f4f4f4;
+  --card-background-api-config: #ffffff;
+  --text-color-api-config: #333333;
+  --label-color-api-config: #34495e;
+  --border-color-api-config: #e0e0e0;
 }
 
 body {
@@ -124,6 +132,7 @@ main {
 
 #profile_sign:hover {
   text-decoration: underline;
+  border-bottom: 1px solid;
 }
 
 .listing_title {

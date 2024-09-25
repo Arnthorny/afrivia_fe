@@ -42,7 +42,7 @@ label {
   display: block;
   margin-top: 20px;
   color: var(--label-color);
-  font-weight: 500;
+  font-weight: bold;
 }
 
 input[type="text"],

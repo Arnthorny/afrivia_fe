@@ -17,16 +17,21 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script type="module" src="./scripts/auth_handlers.js"></script>
     <script type="module" src="./scripts/auth_form_handlers.js"></script>
+    <script
+      type="module"
+      src="./scripts/submission_api_config_helpers.js"
+      defer
+    ></script>
     <script type="module" src="./scripts/submission.js" defer></script>
   </head>
   <body>
     <header>
       <div class="logo">
-        <a href="./index.html"><img src="images/zome_logo.svg" alt="" /></a>
+        <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
       </div>
       <nav>
         <ol>
-          <li><a href="#">API CONFIG</a></li>
+          <li><a href="./api_config.html">API CONFIG</a></li>
           <li><a href="./submission.html">ADD SUBMISSION</a></li>
           <li><a href="./contact.html">CONTACT US</a></li>
           <li><a href="#">ABOUT</a></li>
@@ -41,7 +46,7 @@
       <div class="submission-form-container">
         <h1>Afrivia Submission Form</h1>
         <form>
-          <label for="question">Question *</label>
+          <label for="question" class="required">Question</label>
           <input
             type="text"
             id="question"
@@ -50,7 +55,7 @@
             minlength="4"
           />
 
-          <label for="incorrect1">Incorrect Option 1 *</label>
+          <label for="incorrect1" class="required">Incorrect Option 1</label>
           <input
             type="text"
             id="incorrect1"
@@ -59,7 +64,7 @@
             minlength="1"
           />
 
-          <label for="incorrect2">Incorrect Option 2 *</label>
+          <label for="incorrect2" class="required">Incorrect Option 2</label>
           <input
             type="text"
             id="incorrect2"
@@ -68,7 +73,7 @@
             minlength="1"
           />
 
-          <label for="incorrect3">Incorrect Option 3 *</label>
+          <label for="incorrect3" class="required">Incorrect Option 3</label>
           <input
             type="text"
             id="incorrect3"
@@ -77,7 +82,7 @@
             minlength="1"
           />
 
-          <label for="correct">Correct Option *</label>
+          <label for="correct" class="required">Correct Option</label>
           <input
             type="text"
             id="correct"
@@ -86,7 +91,7 @@
             minlength="1"
           />
 
-          <label for="difficulty">Difficulty *</label>
+          <label for="difficulty" class="required">Difficulty</label>
           <select id="difficulty" name="difficulty" required>
             <option value="">Select difficulty</option>
             <option value="easy">Easy</option>
@@ -97,7 +102,7 @@
           <label for="note">Submission Note</label>
           <textarea id="note" name="submission_note"></textarea>
 
-          <label for="category">Category *</label>
+          <label for="category" class="required">Category</label>
           <select id="category" name="category" required>
             <option value="">Select category</option>
             <!-- <option value="math">Mathematics</option>
