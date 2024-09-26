@@ -101,81 +101,103 @@ async function renderAllSubs(submStatus) {
   contentArea.insertAdjacentHTML("afterbegin", content);
 }
 
+function renderRowCells(subObject, [key, value]) {
+  let cell_content = "";
+  if (key === "incorrect_options") {
+    cell_content = `
+    <ul class="options-list">
+      ${subObject.incorrect_options.map((val) => `<li>${val}</li>`).join("")}
+    </ul>
+    `;
+  } else if (key === "created_at") {
+    cell_content = new Date(subObject.created_at).toGMTString();
+  } else if (key === "category") {
+    cell_content = subObject.category.replace("-", " ");
+  } else if (key === "countries") {
+    cell_content = subObject.countries.join(",");
+  } else {
+    cell_content = subObject[key] || "";
+  }
+  let cell_html = `
+    <div class="row">
+      <div class="cell">${value}</div>
+      <div class="cell">${cell_content}</div>
+    </div>
+  `;
+  return cell_html;
+}
+
 async function renderSingleSub(el) {
   const dashboardData = globalDashboardData;
-  let content, content_body, content_buttons;
-  const a = [];
+  let content, content_body, content_buttons, content_dupe;
   const subObject = dashboardData.find((val) => val.id === el.dataset.id);
+  const submissionDupes = [];
   if (subObject === undefined) {
     alert("Submission not found");
     return;
   }
+  const subItems = {
+    id: "Submission ID",
+    question: "Question",
+    correct_option: "Correct option",
+    incorrect_options: "Incorrect Options",
+    category: "Category",
+    difficulty: "Difficulty",
+    submission_note: "Submission Note",
+    created_at: "Date Submitted",
+    countries: "Associated Countries"
+  };
 
+  const usefulDupeKeys = ["question", "difficulty", "created_at"];
+
+  content_buttons = `
+            <div class="submission-content-button-container">
+              <button class="action-button approve-button" data-submissionid=${subObject.id}><i class="far fa-check-circle"></i> Approve</button>
+              <button class="action-button reject-button" data-submissionid=${subObject.id}><i class="fas fa-ban"></i> Reject</button>
+            </div>
+          
+  `;
   content_body = `
   <div class="submission-content-container" data-id=${subObject.id}>
             <button id="submission-content-back-button">
             <i class="fas fa-chevron-left"></i>Back</button>
 
             <div class="flexbox-table">
-              <div class="row">
-                <div class="cell">Submission ID</div>
-                <div class="cell">${subObject.id}</div>
-              </div>
-              <div class="row">
-                <div class="cell">Question</div>
-                <div class="cell">${subObject.question}</div>
-              </div>
-              <div class="row">
-                <div class="cell">Correct options</div>
-                <div class="cell">${subObject.correct_option}</div>
-              </div>
-              <div class="row">
-                <div class="cell incorrect-options">Incorrect options</div>
-                <div class="cell">
-                  <ul class="options-list">
-                    <li>${subObject.incorrect_options[0]}</li>
-                    <li>${subObject.incorrect_options[1]}</li>
-                    <li>${subObject.incorrect_options[2]}</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="cell">Category</div>
-                <div class="cell">${subObject.category.replace("-", " ")}</div>
-              </div>
-              <div class="row">
-                <div class="cell">Difficulty</div>
-                <div class="cell">${subObject.difficulty}</div>
-              </div>
-              <div class="row">
-                <div class="cell">Associated Countries</div>
-                <div class="cell">${subObject.countries.join(",")}</div>
-              </div>
-              <div class="row">
-                <div class="cell">Associated Countries</div>
-                <div class="cell">${subObject.submission_note || ""}</div>
-              </div>
-              <div class="row">
-                <div class="cell">Date Submitted</div>
-                <div class="cell">${new Date(
-                  subObject.created_at
-                ).toGMTString()}</div>
-              </div>
+            ${Object.entries(subItems)
+              .map(renderRowCells.bind({}, subObject))
+              .join("")}
+              
             </div>
+            ${subObject.status === "pending" ? content_buttons : ""}
+          </div>
             `;
-  content_buttons = `
-            <div class="submission-content-button-container">
-              <button class="action-button approve-button" data-submissionid=${subObject.id}><i class="far fa-check-circle"></i> Approve</button>
-              <button class="action-button reject-button" data-submissionid=${subObject.id}><i class="fas fa-ban"></i> Reject</button>
+  content_dupe = `
+          <div class="duplicates-container">
+            <h2>Possible Duplicates</h2>
+            <div class="duplicates-flex-table">
+              <div class="row">
+                <div class="cell cell-heading">Question</div>
+                <div class="cell cell-heading">Difficulty</div>
+                <div class="cell cell-heading">Category</div>
+              </div>
+              ${submissionDupes.map(function (dupeItem) {
+                return `
+                    <div class="row">
+                    ${usefulDupeKeys
+                      .map((key) => `<div class="cell">${dupeItem[key]}</div>`)
+                      .join("")}
+                      </div>
+                    `;
+              })}
             </div>
           </div>
-  `;
+        `;
 
   while (contentArea.firstChild) {
     contentArea.removeChild(contentArea.firstChild);
   }
   content = `${content_body}${
-    subObject.status === "pending" ? content_buttons : ""
+    subObject.status === "pending" ? content_dupe : ""
   }`;
 
   contentArea.insertAdjacentHTML("afterbegin", content);

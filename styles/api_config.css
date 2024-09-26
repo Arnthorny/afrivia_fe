@@ -51,7 +51,7 @@ select {
   border: 1px solid var(--border-color-api-config);
   border-radius: 4px;
   box-sizing: border-box;
-  background-color: #f8f9fa;
+  background-color: white;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
