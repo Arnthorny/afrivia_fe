@@ -13,40 +13,46 @@
   <body>
     <header>
       <div class="logo">
-        <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
+          <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
       </div>
-      <nav>
-        <ol>
-          <li><a href="./api_config.html">API CONFIG</a></li>
-          <li><a href="./submission.html">ADD SUBMISSION</a></li>
-          <li><a href="./contact.html">CONTACT US</a></li>
-          <li><a href="#">ABOUT</a></li>
-          <li id="profile_sign">
-            <img src="images/user_circle.svg" alt="" />
-            <a href="./login.html">Sign In</a>
-          </li>
-        </ol>
+      <nav class="navbar container">
+          <ol class="nav-links">
+              <li><a href="./api_config.html">API Config</a></li>
+              <li><a href="./submission.html">Add Submission</a></li>
+              <li><a href="#">About</a></li>
+              <li id="profile_sign">
+              <img src="images/user_circle.svg" alt="" />
+                  <a href="./login.html">Sign In</a>
+              </li>
+          </ol>
+          <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
       </nav>
-    </header>
-    <main>
-      <h1>About Zome</h1>
+  </header>
+    <main style="display: flex; justify-content: center; flex-flow: column;">
+      <h1 style="text-align: center;">About Afrivia</h1>
+      <br>
       <p>
-        A comprehensive real estate website that serves as a hub for customers
-        to meet all their real estate needs. Welcome to Zome, a one-stop
-        solution for all your real estate needs. Whether you're looking to buy,
-        sell, our platform is designed to make the process easy and convenient
-        for you.
+        
       </p>
     </main>
     <footer>
-      <p>
-        This portfolio project was created for the ALX software engineering
-        programme
-      </p>
-      <p>
-        Find the source code and contributors
-        <a href="https://github.com/Matutozi/Zome" target="blank">here</a>
-      </p>
-    </footer>
+      <div class="container">
+          <div class="footer-content">
+              <p>&copy; 2024 Afrivia. All rights reserved.</p>
+              <ul class="footer-links">
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+              </ul>
+              <div class="social-icons">
+                  <a href="https://github.com/arnthorny/afrivia_fe" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="https://github.com/arnthorny/afrivia" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+          </div>
+      </div>
+  </footer>
   </body>
 </html>

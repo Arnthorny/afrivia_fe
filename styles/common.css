@@ -42,6 +42,14 @@ html {
   --text-color-api-config: #333333;
   --label-color-api-config: #34495e;
   --border-color-api-config: #e0e0e0;
+
+  --primary-blue: #1e88e5;
+  --dark-blue: #0d47a1;
+  --light-blue: #64b5f6;
+  --accent-blue: #29b6f6;
+  --background-color: #f5f5f5;
+  --text-color: #333333;
+  --light-text-color: #ffffff;
 }
 
 body {
@@ -59,8 +67,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1%;
-  margin: 1rem 0;
+  padding: 3rem;
+  /* margin: 1rem 0; */
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
 }
 
 header > .logo {
@@ -73,10 +85,6 @@ header > .logo > img {
   max-height: 100%;
 }
 
-/* header > nav {
-  width: 60%;
-} */
-
 header > nav > ol {
   min-width: 600px;
   display: flex;
@@ -84,6 +92,7 @@ header > nav > ol {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  z-index: 5;
 }
 
 header > nav > ol > li {
@@ -94,6 +103,7 @@ header > nav > ol > li {
   border-radius: 8px;
   transition: all 0.5s;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 header > nav > ol > li:hover:not(:last-child) {
@@ -109,7 +119,8 @@ header > nav > ol > li > a:focus {
 
 main {
   width: 100%;
-  padding: 0 1%;
+  /* padding: 0 1%; */
+  margin-top: 20vh;
 }
 
 #profile_sign {
@@ -134,39 +145,134 @@ main {
   border-bottom: 1px solid;
 }
 
-.listing_title {
-  display: flex;
-  justify-content: space-between;
-}
+/* Nav Bar */
 
-.listing_title > select {
-  /* all: unset; */
-  display: inline-block;
+.hamburger {
+  display: none;
   cursor: pointer;
-  background-color: transparent;
-  padding: 1rem 0;
-  border: none;
-  border-bottom: 1px solid var(--light-grey);
 }
 
-footer {
-  color: var(--white);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background-color: var(--zome-blue-dark); */
-  background-color: var(--zome-blue-mix);
-  height: 8rem;
-  justify-content: space-evenly;
-  margin-top: 20px;
-  padding: 0 2%;
-}
-footer > p {
+.bar {
   display: block;
-  font-size: 1.2rem;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+  background-color: var(--zome-blue);
 }
 
-footer > p > a:hover {
-  color: var(--black);
+
+
+
+/* Footer styles */
+footer {
+  background-color: var(--dark-blue);
+  color: var(--light-text-color);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.35rem;
+
+  position: sticky;
+  /* bottom: 0; */
+  width: 100%;
+  margin-top: 10rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--light-text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.footer-links a:hover {
+  color: var(--accent-blue);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: var(--light-text-color);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--accent-blue);
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  header > nav > ol {
+      position: fixed;
+      left: 100%;
+      top: 7rem;
+      flex-direction: column;
+      background-color: white;
+      text-align: center;
+      transition: 0.3s;
+      /* box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05); */
+      justify-content: unset;
+      align-items: center;
+      min-width: unset;
+    
+      width: 100%;
+      padding-top: 4rem;
+  }
+
+  header > nav > ol.active {
+      left: 0;
+  }
+
+  header > nav > ol > li {
+      margin: 2rem 0;
+      padding: 2rem;
+  }
+
+  .hamburger {
+      display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero h1 {
+      font-size: 2.5rem;
+  }
+
+  .hero p {
+      font-size: 1.1rem;
+  }
+
+  .step {
+      flex-basis: 100%;
+  }
 }

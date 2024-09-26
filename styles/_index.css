@@ -1,0 +1,190 @@
+main {
+    padding: 0;
+
+}
+
+
+
+/* Hero section styles */
+.hero {
+    background-image: url('/api/placeholder/1200/600');
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text-color);
+    text-align: center;
+    /* padding: 8rem 0 4rem; */
+    position: relative;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(13, 71, 161, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.7rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: var(--light-text-color);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--light-blue);
+}
+
+/* Features section styles */
+.features {
+    padding: 4rem 0;
+    background-color: var(--light-text-color);
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+}
+
+.feature-grid {
+    font-size: 1.35rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.feature i, .step i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+    display: block;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+/* How It Works section styles */
+.how-it-works {
+    padding: 4rem 0;
+    font-size: 1.35rem;
+    background-color: #e3f2fd;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex-basis: 30%;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.step img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+/* Testimonials section styles */
+.testimonials {
+    font-size: 1.35rem;
+    padding: 4rem 0;
+    background-color: var(--primary-blue);
+    color: var(--light-text-color);
+}
+
+.testimonials h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    font-weight: bold;
+}
+
+

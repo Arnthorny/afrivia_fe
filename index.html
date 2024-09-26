@@ -1,63 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="images/zome_icon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="styles/common.css" />
-    <link rel="stylesheet" href="styles/homepage.css" />
-    <script type="text/javascript" src="script.js" defer></script>
-    <title>Zome</title>
-  </head>
-  <body>
+    <title>Afrivia - African Trivia API</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/_index.css">
+    <script src="./scripts/_index.js" defer></script>
+</head>
+<body>
     <header>
-      <div class="logo">
-        <a href="#"><img src="images/zome_logo.svg" alt="" /></a>
-      </div>
-      <nav>
-        <ol>
-          <li><a href="./api_config.html">API CONFIG</a></li>
-          <li><a href="./submission.html">ADD SUBMISSION</a></li>
-          <li><a href="./contact.html">CONTACT US</a></li>
-          <li><a href="./about.html">ABOUT</a></li>
-          <li id="profile_sign">
-            <img src="images/user_circle.svg" alt="" />
-            <a href="./login.html">Sign In</a>
-          </li>
-        </ol>
-      </nav>
+        <div class="logo">
+            <a href="#"><img src="images/zome_logo.svg" alt="" /></a>
+        </div>
+        <nav class="navbar container">
+            <ol class="nav-links">
+                <li><a href="./api_config.html">API Config</a></li>
+                <li><a href="./submission.html">Add Submission</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li id="profile_sign">
+                <img src="images/user_circle.svg" alt="" />
+                    <a href="./login.html">Sign In</a>
+                </li>
+            </ol>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
     </header>
-    <div class="hero">
-      <h2>The search ends here...</h2>
-      <div class="search-bar">
-        <input
-          type="search"
-          id="query"
-          name="q"
-          placeholder="Search..."
-          size="20"
-        />
-        <button>
-          <svg viewBox="0 0 1024 1024">
-            <path
-              class="path1"
-              d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"
-            ></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <main></main>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content container">
+                <h1>Discover African Trivia with Afrivia</h1>
+                <p>Explore our vast database of African trivia questions and integrate them into your applications with ease.</p>
+                <a href="#api-config" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Afrivia?</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <!-- <img src="/api/placeholder/80/80" alt="Afro-centric Focus"> -->
+                        <i class="fas fa-globe-africa"></i>
+                        <h3>AFRO-CENTRIC FOCUS</h3>
+                        <p>Our database is dedicated to trivia questions related to the African continent.</p>
+                    </div>
+                    <div class="feature">
+                        <!-- <img src="/api/placeholder/80/80" alt="User-powered Content"> -->
+                        <i class="fas fa-users"></i>
+                        <h3>USER-POWERED CONTENT</h3>
+                        <p>Questions are sourced from anonymous user submissions, ensuring diverse and engaging content.</p>
+                    </div>
+                    
+                    <div class="feature">
+                        <!-- <img src="/api/placeholder/80/80" alt="Easy API Integration"> -->
+                        <i class="fas fa-cogs"></i>
+                        <h3>EASY API INTEGRATION</h3>
+                        <p>Configure and generate API URLs tailored to your specific needs with our user-friendly interface.</p>
+                    </div>
+                    <div class="feature">
+                        <!-- <img src="/api/placeholder/80/80" alt="Moderator powered reviews"> -->
+                        <i class="fas fa-users-cog"></i>
+                        <h3>MODERATOR REVIEWED</h3>
+                        <p>Submissions are reviewed by a team of moderators with vast knowledge of the diverse African continent.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <!-- <img src="/api/placeholder/100/100" alt="Step 1"> -->
+                        <i class="fas fa-cog"></i>
+                        <h3>1. Configure Your API</h3>
+                        <p>Use our intuitive API configuration tool to set up your preferences.</p>
+                    </div>
+                    <div class="step">
+                        <!-- <img src="/api/placeholder/100/100" alt="Step 2"> -->
+                        <i class="fas fa-server"></i>
+                        <h3>2. Integrate the API</h3>
+                        <p>Implement the generated API URL into your application or website.</p>
+                    </div>
+                    <div class="step">
+                        <!-- <img src="/api/placeholder/100/100" alt="Step 3"> -->
+                        <i class="far fa-check-circle"></i>
+                        <h3>3. Enjoy African Trivia</h3>
+                        <p>Start receiving diverse and engaging African trivia questions in your project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Users Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <p>"Afrivia has been a game-changer for our educational app. The diverse range of African trivia has greatly enriched our content."</p>
+                        <span class="testimonial-author">- Sarah M., EdTech Developer</span>
+                    </div>
+                    <div class="testimonial">
+                        <p>"As a quiz master, I love the depth and variety of questions Afrivia provides. It's my go-to source for African trivia."</p>
+                        <span class="testimonial-author">- John K., Trivia Host</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-      <p>
-        This portfolio project was created for the ALX software engineering
-        programme
-      </p>
-      <p>
-        Find the source code and contributors
-        <a href="https://github.com/Matutozi/Zome" target="blank">here</a>
-      </p>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Afrivia. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://github.com/arnthorny/afrivia_fe" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/arnthorny/afrivia" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
-  </body>
+</body>
 </html>

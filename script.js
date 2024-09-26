@@ -34,3 +34,17 @@ window.addEventListener("load", function (e) {
     anchor.href = "./login.html";
   }
 });
+
+  // JavaScript for hamburger menu functionality
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector("nav > ol");
+
+hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navLinks.classList.toggle("active");
+  });
+
+navLinks.querySelectorAll("li").forEach(n => n.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navLinks.classList.remove("active");
+  }));

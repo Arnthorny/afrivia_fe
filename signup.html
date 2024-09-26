@@ -17,21 +17,25 @@
   <body>
     <header>
       <div class="logo">
-        <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
+          <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
       </div>
-      <nav>
-        <ol>
-          <li><a href="./api_config.html">API CONFIG</a></li>
-          <li><a href="./submission.html">ADD SUBMISSION</a></li>
-          <li><a href="./contact.html">CONTACT US</a></li>
-          <li><a href="./about.html">ABOUT</a></li>
-          <li id="profile_sign">
-            <img src="images/user_circle.svg" alt="" />
-            <a href="./login.html">Sign In</a>
-          </li>
-        </ol>
+      <nav class="navbar container">
+          <ol class="nav-links">
+              <li><a href="./api_config.html">API Config</a></li>
+              <li><a href="./submission.html">Add Submission</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li id="profile_sign">
+              <img src="images/user_circle.svg" alt="" />
+                  <a href="./login.html">Sign In</a>
+              </li>
+          </ol>
+          <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
       </nav>
-    </header>
+  </header>
     <main>
       <h1>Moderator Sign Up Form</h1>
       <div class="form_container">
@@ -112,14 +116,19 @@
       </div>
     </main>
     <footer>
-      <p>
-        This portfolio project was created for the ALX software engineering
-        programme
-      </p>
-      <p>
-        Find the source code and contributors
-        <a href="https://github.com/Arnthorny/afrivia" target="blank">here</a>
-      </p>
-    </footer>
+      <div class="container">
+          <div class="footer-content">
+              <p>&copy; 2024 Afrivia. All rights reserved.</p>
+              <ul class="footer-links">
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Terms of Service</a></li>
+              </ul>
+              <div class="social-icons">
+                  <a href="https://github.com/arnthorny/afrivia_fe" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="https://github.com/arnthorny/afrivia" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              </div>
+          </div>
+      </div>
+  </footer>
   </body>
 </html>
