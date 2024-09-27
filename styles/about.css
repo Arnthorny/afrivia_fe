@@ -1,17 +1,18 @@
 body {
-	position: relative;
+  position: relative;
 }
 
 main {
-	width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
 }
 
 main > p {
-	margin-top: 1rem;
-	font-size: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
-footer {
-	position: absolute;
-	bottom: 0;
+main > h1 {
+  text-align: center;
 }

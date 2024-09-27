@@ -127,15 +127,33 @@ function renderRowCells(subObject, [key, value]) {
   return cell_html;
 }
 
+async function retrieveSubmissionDuplicates(submId) {
+  let getSubmDupesOptions = {
+    method: "get",
+    url: `/submissions/${submId}/similars`,
+  };
+
+  try {
+    const response = await auth_routes_instance(getSubmDupesOptions);
+    if (response && response.status == 200) {
+      const res_data = response.data["data"];
+      // console.log(globalDashboardData);
+      return res_data;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function renderSingleSub(el) {
-  const dashboardData = globalDashboardData;
   let content, content_body, content_buttons, content_dupe;
+  const dashboardData = globalDashboardData;
   const subObject = dashboardData.find((val) => val.id === el.dataset.id);
-  const submissionDupes = [];
   if (subObject === undefined) {
     alert("Submission not found");
     return;
   }
+  const submissionDupes = await retrieveSubmissionDuplicates(subObject.id);
   const subItems = {
     id: "Submission ID",
     question: "Question",
@@ -145,10 +163,10 @@ async function renderSingleSub(el) {
     difficulty: "Difficulty",
     submission_note: "Submission Note",
     created_at: "Date Submitted",
-    countries: "Associated Countries"
+    countries: "Associated Countries",
   };
 
-  const usefulDupeKeys = ["question", "difficulty", "created_at"];
+  const usefulDupeKeys = ["question", "difficulty", "category"];
 
   content_buttons = `
             <div class="submission-content-button-container">
@@ -175,10 +193,10 @@ async function renderSingleSub(el) {
           <div class="duplicates-container">
             <h2>Possible Duplicates</h2>
             <div class="duplicates-flex-table">
-              <div class="row">
-                <div class="cell cell-heading">Question</div>
-                <div class="cell cell-heading">Difficulty</div>
-                <div class="cell cell-heading">Category</div>
+              <div class="row row-heading">
+                <div class="cell">Question</div>
+                <div class="cell">Difficulty</div>
+                <div class="cell">Category</div>
               </div>
               ${submissionDupes.map(function (dupeItem) {
                 return `

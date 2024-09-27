@@ -126,7 +126,7 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .api-config-form-container {
     padding: 10px;
   }
   .card {

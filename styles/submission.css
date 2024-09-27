@@ -102,7 +102,7 @@ input[type="submit"]:hover {
 }
 
 @media (max-width: 768px) {
-  body {
+  main {
     padding: 10px;
   }
   form {

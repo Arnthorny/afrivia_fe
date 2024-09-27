@@ -13,7 +13,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script type="module" src="./scripts/auth_handlers.js"></script>
     <script src="./scripts/dashboard.js" defer></script>
@@ -23,70 +23,80 @@
   <body>
     <header>
       <div class="logo">
-          <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
+        <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
       </div>
       <nav class="navbar container">
-          <ol class="nav-links">
-              <li><a href="./api_config.html">API Config</a></li>
-              <li><a href="./submission.html">Add Submission</a></li>
-              <li><a href="./about.html">About</a></li>
-              <li id="profile_sign">
-              <img src="images/user_circle.svg" alt="" />
-                  <a href="./login.html">Sign In</a>
-              </li>
-          </ol>
-          <div class="hamburger">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-          </div>
+        <ol class="nav-links">
+          <li><a href="./api_config.html">API Config</a></li>
+          <li><a href="./submission.html">Add Submission</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li id="profile_sign">
+            <img src="images/user_circle.svg" alt="" />
+            <a href="./login.html">Sign In</a>
+          </li>
+        </ol>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
-  </header>
+    </header>
     <main>
-    <div class="container">
-      <div class="sidebar">
-        <h2>Welcome User!</h2>
-        <ul id="sidebar-menu-items">
-          <li>
-            <a href="#" class="menu-item active" data-section="pending"
-              >Pending</a
-            >
-          </li>
-          <li>
-            <a href="#" class="menu-item" data-section="approved">Approved</a>
-          </li>
-          <li>
-            <a href="#" class="menu-item" data-section="rejected">Rejected</a>
-          </li>
-          <li id="logout-button-li">
-            <button id="logout-button">
-              <i class="fas fa-sign-out-alt"></i>Logout
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div class="main-content">
-        <div class="header">
-          <h1 id="page-title">Dashboard</h1>
+      <div class="container">
+        <div class="sidebar">
+          <h2>Welcome User!</h2>
+          <ul id="sidebar-menu-items">
+            <li>
+              <a href="#" class="menu-item active" data-section="pending"
+                >Pending</a
+              >
+            </li>
+            <li>
+              <a href="#" class="menu-item" data-section="approved">Approved</a>
+            </li>
+            <li>
+              <a href="#" class="menu-item" data-section="rejected">Rejected</a>
+            </li>
+            <li id="logout-button-li">
+              <button id="logout-button">
+                <i class="fas fa-sign-out-alt"></i>Logout
+              </button>
+            </li>
+          </ul>
         </div>
-        <div id="content-area"></div>
+        <div class="main-content">
+          <div class="header">
+            <h1 id="page-title">Dashboard</h1>
+          </div>
+          <div id="content-area"></div>
+        </div>
       </div>
-    </div>
-  </main>
-  <footer>
-    <div class="container">
+    </main>
+    <footer>
+      <div class="footer-container">
         <div class="footer-content">
-            <p>&copy; 2024 Afrivia. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-            <div class="social-icons">
-                <a href="https://github.com/arnthorny/afrivia_fe" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://github.com/arnthorny/afrivia" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
+          <p>&copy; 2024 Afrivia. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+          <div class="social-icons">
+            <a
+              href="https://github.com/arnthorny/afrivia_fe"
+              target="_blank"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://github.com/arnthorny/afrivia"
+              target="_blank"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
   </body>
 </html>
