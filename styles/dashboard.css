@@ -6,10 +6,13 @@ body {
   /* height: 100%; */
 }
 
+main {
+  margin-top: 16.8vh;
+}
 .container {
   display: flex;
   font-family: "Poppins", sans-serif;
-
+  position: relative;
   /* height: 100%; */
 }
 .sidebar {
@@ -18,13 +21,13 @@ body {
   color: black;
   padding: 20px;
   border-right: 1.5px solid #34495e;
-  border-top: 3px solid #34495e;
+  /* border-top: 3px solid #34495e; */
   border-bottom: 3px solid #34495e;
 
   border-radius: 10px;
 }
 .sidebar h2 {
-  margin-top: 1rem;
+  margin-top: 3.5rem;
   color: #34495e;
   margin-bottom: 2.5rem;
   padding-bottom: 10px;
@@ -262,4 +265,99 @@ div#single-submission-content-area h3 {
   /* border: none; */
   background-color: #f44336;
   color: white;
+}
+
+/* Sidebar Nav Bar */
+
+#nav10 {
+  display: none;
+  cursor: pointer;
+  /* position: relative; */
+  width: 3.5rem;
+  height: 3rem;
+  margin-left: auto;
+  position: fixed;
+  left: 1rem;
+  z-index: 5;
+  /* transform: translateY(.5rem); */
+}
+
+#nav10 span,
+#nav10 span::after,
+#nav10 span::before {
+  position: absolute;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+  display: block;
+  height: 0.5rem;
+  width: 100%;
+  background-color: #34495e;
+  border-radius: 10px;
+}
+
+#nav10 span::after,
+#nav10 span::before {
+  content: "";
+}
+
+#nav10 span:nth-child(1) {
+  top: 1rem;
+}
+
+#nav10 span,
+#nav10 span::after,
+#nav10 span::before {
+  width: 50%;
+  height: 0.4rem;
+  /* border-radius: 0px; */
+}
+
+#nav10 span:nth-child(2) {
+  top: 1rem;
+}
+
+#nav10 span:nth-child(3),
+#nav10 span:nth-child(4) {
+  top: 2rem;
+}
+
+#nav10 span:nth-child(even) {
+  left: 45%;
+  /* border-radius: 0 10px 10px 0; */
+  transform: rotate(-45deg);
+}
+
+#nav10 span:nth-child(odd) {
+  transform: rotate(135deg);
+  left: 16%;
+  /* border-radius: 10px 0 0 10px; */
+}
+
+#nav10.open span:nth-child(1),
+#nav10.open span:nth-child(4) {
+  /* transform: rotate(-45deg); */
+  transform: rotate(225deg);
+}
+
+#nav10.open span:nth-child(2),
+#nav10.open span:nth-child(3) {
+  /* transform: rotate(-45deg); */
+  transform: rotate(-225deg);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    transition: 0.3s;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+  #nav10 {
+    display: block;
+  }
 }

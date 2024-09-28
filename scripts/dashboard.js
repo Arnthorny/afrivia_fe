@@ -3,6 +3,7 @@ const sidebarContainer = document.getElementById("sidebar-menu-items");
 const contentArea = document.getElementById("content-area");
 const pageTitle = document.getElementById("page-title");
 const userWelcome = document.querySelector(".sidebar h2");
+const titleElem = document.querySelector("title");
 
 const columnFields = ["question", "difficulty", "created_at"];
 let globalDashboardData = undefined;
@@ -10,6 +11,10 @@ let globalDashboardData = undefined;
 function welcomeUser() {
   const userName = getCookie("username");
   userWelcome.textContent = `Welcome${userName ? ` ${userName}` : ""}!`;
+
+  if (userName !== undefined) {
+    titleElem.textContent = `${userName} Dashboard`;
+  }
 }
 
 async function getDashboardData(status = "pending") {
@@ -345,3 +350,17 @@ welcomeUser();
 
 // Initialize with pending submissions
 retrieveAndRenderAllSubs("pending");
+
+// Configure mobile friendly sidebar
+document.addEventListener("click", function (e) {
+  const target = e.target;
+  const dashboard_nav = document.getElementById("nav10");
+
+  if (target.closest("#nav10") !== null) {
+    target.closest("#nav10").classList.toggle("open");
+    target.closest("#nav10").nextElementSibling.classList.toggle("open");
+  } else {
+    dashboard_nav.classList.remove("open");
+    dashboard_nav.nextElementSibling.classList.remove("open");
+  }
+});

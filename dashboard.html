@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./images/icon.png" type="image/x-icon" />
     <link rel="stylesheet" href="styles/common.css" />
     <link rel="stylesheet" href="styles/dashboard.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -17,13 +19,13 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
     <script type="module" src="./scripts/auth_handlers.js"></script>
     <script src="./scripts/dashboard.js" defer></script>
-    <title>Dashboard</title>
+    <title>Moderator's Dashboard</title>
     <style></style>
   </head>
   <body>
     <header>
       <div class="logo">
-        <a href="./"><img src="images/zome_logo.svg" alt="" /></a>
+        <a href="./"><img src="images/afrivia_logo.svg" alt="" /></a>
       </div>
       <nav class="navbar container">
         <ol class="nav-links">
@@ -44,6 +46,12 @@
     </header>
     <main>
       <div class="container">
+        <div id="nav10" class="hamburger-sidebar nav">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="sidebar">
           <h2>Welcome User!</h2>
           <ul id="sidebar-menu-items">
