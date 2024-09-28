@@ -92,13 +92,12 @@ button:hover {
 }
 
 #api-link {
-  margin-bottom: 2rem;
+  margin-top: 2rem;
   padding: 1rem;
-  font-size: 1.3rem;
-  background-color: #f8f9fa;
+  font-size: 1.35rem;
   border: 1px solid var(--border-color-api-config);
   border-radius: 10px;
-  word-break: break-all;
+  word-break: break-word;
   text-align: center;
   cursor: pointer;
 }
@@ -107,7 +106,7 @@ button:hover {
   display: inline-block;
   position: absolute;
   left: 50%;
-  top: 3%;
+  bottom: 1%;
   transform: translateX(-50%);
   padding: 5px 0.6rem;
   border-radius: 1rem;

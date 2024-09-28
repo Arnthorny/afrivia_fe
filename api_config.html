@@ -54,32 +54,28 @@
         <div class="api-config-form-container">
         <h1>API Configuration</h1>
         <div class="card">
-            <span id="error-box" class=""></span>
-          <div id="api-link" style="display: none"></div>
 
           <form id="api-config-form">
             <div>
-              <label for="amount" class="required">Amount of Questions</label>
+              <label for="amount">Amount of Questions</label>
               <input
                 type="number"
                 id="amount"
                 name="amount"
                 min="1"
                 max="20"
-                value="1"
-                required
-              />
+                value="1"/>
             </div>
             <div>
-              <label for="category" class="required">Category</label>
-              <select id="category" name="category" required>
-                <option value="">Select category</option>
+              <label for="category">Category</label>
+              <select id="category" name="category">
+                <option value="">Any category</option>
               </select>
             </div>
             <div>
-              <label for="difficulty" class="required">Difficulty</label>
-              <select id="difficulty" name="difficulty" required>
-                <option value="">Select difficulty</option>
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty" name="difficulty">
+                <option value="">Any difficulty</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
@@ -88,11 +84,14 @@
             <div>
               <label for="country">Country</label>
               <select id="country" name="country">
-                <option value="">Select Country</option>
+                <option value="">Any Country</option>
               </select>
             </div>
             <button type="submit">Generate API Link</button>
           </form>
+          <span id="error-box" class=""></span>
+          <div id="api-link" style="display: none"></div>
+
         </div>
       </div>
     </main>

@@ -10,7 +10,8 @@ const errorBox = document.getElementById("error-box");
 function handleGenAPILink(event) {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
+  const form = event.target;
+  const formData = new FormData(form);
   const formObjectData = Object.fromEntries(Array.from(formData.entries()));
 
   const baseUrl = new URL(`${ENDPOINT_URL}/questions`);
@@ -23,6 +24,8 @@ function handleGenAPILink(event) {
 
   apiLinkDiv.style.display = "block";
   apiLinkDiv.textContent = baseUrl.href;
+
+  form.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function timedOutMsg(elemName = "clipboard", message) {
