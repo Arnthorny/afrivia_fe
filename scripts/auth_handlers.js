@@ -40,7 +40,7 @@ setAuthCookies = async function (userObject) {
 };
 
 deleteCookie = function (name) {
-  document.cookie = `${name}=; path=/; max-age=0;`;
+  document.cookie = `${name}=; path=/; SameSite=Lax; max-age=0;`;
 };
 
 const auth_request_interceptor = function (config) {

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
 body {
   position: relative;
 }
@@ -129,13 +131,19 @@ a {
   font-size: 1.5rem;
   display: block;
   margin: 2rem 0 0.2rem auto;
-  border: 1px solid var(--zome-blue);
+  border: 1.5px solid var(--zome-user);
   border-radius: 10px;
-  color: var(--zome-blue);
-  padding: 1rem;
+  color: var(--zome-user);
+  padding: 1rem 1.5rem;
+  font-family: "Poppins";
+  font-weight: 600;
   /* width: 60%; */
   background: none;
   cursor: pointer;
+}
+
+.form_container > form button i {
+  font-size: 1.6rem;
 }
 
 .form_container > form button:hover {

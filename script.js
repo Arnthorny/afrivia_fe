@@ -50,3 +50,15 @@ navLinks.querySelectorAll("li").forEach((n) =>
     navLinks.classList.remove("active");
   })
 );
+
+async function spinner_active(activate, el) {
+  const icon = `<i class="fas fa-cog fa-spin"></i>`;
+  spinner_active.initHTML =
+    el.innerHTML !== icon ? el.innerHTML : spinner_active.initHTML;
+
+  while (el.firstChild) el.removeChild(el.firstChild);
+  el.disabled = activate;
+
+  if (activate) el.insertAdjacentHTML("beforeend", icon);
+  else el.insertAdjacentHTML("beforeend", spinner_active.initHTML);
+}

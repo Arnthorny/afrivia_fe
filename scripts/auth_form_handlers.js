@@ -17,9 +17,14 @@ function errorRequestHandler(errData, statusCode = 500) {
       break;
   }
 }
+
 async function signInSubmissionHandler(e) {
   e.preventDefault();
-  const formData = new FormData(e.target);
+  const form = e.target;
+  const submBtn = form.querySelector("#submit");
+  spinner_active(true, submBtn);
+
+  const formData = new FormData(form);
   const formObjectData = Object.fromEntries(Array.from(formData.entries()));
 
   let postLoginOptions = {
@@ -36,13 +41,18 @@ async function signInSubmissionHandler(e) {
       window.location.href = "./dashboard.html";
     }
   } catch (error) {
+    errorRequestHandler(error.response.data, error.response.status);
     console.error(error.response);
+  } finally {
+    spinner_active(false, submBtn);
   }
 }
 
 async function signUpSubmissionHandler(e) {
   e.preventDefault();
   const form = e.target;
+  const submBtn = form.querySelector("#submit");
+  spinner_active(true, submBtn);
 
   const formData = new FormData(form);
   const formObjectData = Object.fromEntries(Array.from(formData.entries()));
@@ -66,12 +76,16 @@ async function signUpSubmissionHandler(e) {
   } catch (error) {
     errorRequestHandler(error.response.data, error.response.status);
     console.log(error.response);
+  } finally {
+    spinner_active(false, submBtn);
   }
 }
 
 async function submissionFormSubmissionHandler(e) {
   e.preventDefault();
   const form = e.target;
+  const submBtn = form.querySelector("#submit");
+  spinner_active(true, submBtn);
 
   const formData = new FormData(form);
   const formObjectData = Object.fromEntries(Array.from(formData.entries()));
@@ -112,6 +126,8 @@ async function submissionFormSubmissionHandler(e) {
   } catch (error) {
     errorRequestHandler(error.response.data, error.response.status);
     console.log(error.response);
+  } finally {
+    spinner_active(false, submBtn);
   }
 }
 
