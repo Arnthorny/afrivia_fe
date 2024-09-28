@@ -30,7 +30,7 @@ window.addEventListener("load", function (e) {
   } else {
     const anchor = signInButton.querySelector("a");
 
-    anchor.textContent = "Sign In";
+    anchor.textContent = "Mod Login";
     anchor.href = "./login.html";
   }
 });
