@@ -226,7 +226,8 @@ async function renderSingleSub(el) {
   contentArea.insertAdjacentHTML("afterbegin", content);
 }
 
-async function handleUserLogout() {
+async function handleUserLogout(el_) {
+  spinner_active(true, el_);
   let logoutOptions = {
     method: "post",
     url: `/auth/logout`,
@@ -243,6 +244,8 @@ async function handleUserLogout() {
     }
   } catch (error) {
     console.error(error && error.response);
+  } finally {
+    spinner_active(false, el_);
   }
 }
 
@@ -255,7 +258,7 @@ sidebarContainer.addEventListener("click", function (e) {
     menu_target.classList.add("active");
     retrieveAndRenderAllSubs(menu_target.dataset.section);
   } else if (isLogoutButton !== null) {
-    handleUserLogout();
+    handleUserLogout(isLogoutButton);
   }
 });
 
@@ -299,6 +302,7 @@ async function createTrivia(submObject) {
 
 async function approveRejectButtonHandler(el_) {
   // const el_ = document.querySelector("button");
+  spinner_active(true, el_);
   const dashboardData = globalDashboardData;
   const status = el_.classList.contains("approve-button")
     ? "approved"
@@ -320,12 +324,14 @@ async function approveRejectButtonHandler(el_) {
         dashboardData.findIndex((val) => val.id === submId),
         1
       )[0];
-      if (status === "approved") createTrivia(submObj);
+      if (status === "approved") await createTrivia(submObj);
       alert(`Submission ${status}`);
       renderAllSubs("pending");
     }
   } catch (error) {
     console.error(error.response);
+  } finally {
+    spinner_active(false, el_);
   }
 }
 
