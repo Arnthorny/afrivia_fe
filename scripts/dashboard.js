@@ -35,7 +35,7 @@ async function getDashboardData(status = "pending") {
       return res_data;
     }
   } catch (error) {
-    console.error(error);
+    throw error;
   }
 }
 
@@ -58,14 +58,21 @@ function generateSubmissionRow(item) {
 }
 
 async function retrieveAndRenderAllSubs(submStatus = "pending") {
-  const fetchdashboardData = await getDashboardData(submStatus);
-  globalDashboardData = fetchdashboardData
-    ? fetchdashboardData.items
-    : undefined;
+  try {
+    const fetchdashboardData = await getDashboardData(submStatus);
+    globalDashboardData = fetchdashboardData
+      ? fetchdashboardData.items
+      : undefined;
 
-  if (globalDashboardData === undefined) return;
+    if (globalDashboardData === undefined) return;
 
-  renderAllSubs(submStatus);
+    renderAllSubs(submStatus);
+  } catch (err) {
+    const errorMsg = 'Error occured while loading dashboard. Check console';
+    alert(errorMsg);
+
+    console.error(err);
+  }
 }
 
 async function renderAllSubs(submStatus) {

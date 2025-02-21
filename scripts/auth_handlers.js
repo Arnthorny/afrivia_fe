@@ -59,12 +59,12 @@ const auth_response_err_interceptor = async function (error) {
       const resToken = await with_cred_instance.post(
         "/auth/refresh-access-token"
       );
-      if (resToken.statusText == "OK") {
+      if (resToken.statusText === "OK") {
         setAuthCookies(resToken.data);
         return auth_routes_instance(originalRequest);
       }
     } catch (err) {
-      if (err.response.status === 401) {
+      if (err.response && err.response.status === 401) {
         window.location.href = "./login.html";
       } else throw err;
     }
